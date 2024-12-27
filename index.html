@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Jersey Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="hose.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Jersey Shop</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="cart-container">
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="cart-dropdown">
+                    <h3>Shopping Cart</h3>
+                    <div class="cart-items">
+                        <!-- Cart items will be added here dynamically -->
+                    </div>
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cartTotalAmount">Ksh 0</span>
+                    </div>
+                    <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout on WhatsApp</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Premium Football Jerseys</h1>
+        <p>Get your favorite team's jersey today!</p>
+        <a href="#shop" class="cta-button">Shop Now</a>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="shop">
+        <h2>Featured Jerseys</h2>
+        <div class="product-grid">
+            <!-- Jersey 1 -->
+            <div class="product-card" data-price="2500">
+                <div class="sale-badge">New!</div>
+                <div class="product-image">
+                    <img src="jersey1.jpg" alt="Manchester United Home Kit">
+                </div>
+                <div class="product-info">
+                    <h3>Manchester United Home Kit 23/24</h3>
+                    <p class="price">Ksh 2,500</p>
+                    <div class="sizes">
+                        <button class="size-btn" data-size="S">S</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="L">L</button>
+                        <button class="size-btn" data-size="XL">XL</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart(this)">
+                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Jersey 2 -->
+            <div class="product-card" data-price="1800">
+                <div class="sale-badge">-20%</div>
+                <div class="product-image">
+                    <img src="jersey2.jpg" alt="Arsenal Away Kit">
+                </div>
+                <div class="product-info">
+                    <h3>Arsenal Away Kit 23/24</h3>
+                    <p class="price"><span class="original-price">Ksh 2,200</span> Ksh 1,800</p>
+                    <div class="sizes">
+                        <button class="size-btn" data-size="S">S</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="L">L</button>
+                        <button class="size-btn" data-size="XL">XL</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart(this)">
+                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Jersey 3 -->
+            <div class="product-card" data-price="2300">
+                <div class="product-image">
+                    <img src="jersey3.jpg" alt="Liverpool Home Kit">
+                </div>
+                <div class="product-info">
+                    <h3>Liverpool Home Kit 23/24</h3>
+                    <p class="price">Ksh 2,300</p>
+                    <div class="sizes">
+                        <button class="size-btn" data-size="S">S</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="L">L</button>
+                        <button class="size-btn" data-size="XL">XL</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart(this)">
+                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Jersey 4 -->
+            <div class="product-card" data-price="2700">
+                <div class="sale-badge">Hot!</div>
+                <div class="product-image">
+                    <img src="jersey4.jpg" alt="Real Madrid Home Kit">
+                </div>
+                <div class="product-info">
+                    <h3>Real Madrid Home Kit 23/24</h3>
+                    <p class="price">Ksh 2,700</p>
+                    <div class="sizes">
+                        <button class="size-btn" data-size="S">S</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="L">L</button>
+                        <button class="size-btn" data-size="XL">XL</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart(this)">
+                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Jersey 5 -->
+            <div class="product-card" data-price="2100">
+                <div class="sale-badge">Limited!</div>
+                <div class="product-image">
+                    <img src="jersey5.jpg" alt="Barcelona Home Kit">
+                </div>
+                <div class="product-info">
+                    <h3>Barcelona Home Kit 23/24</h3>
+                    <p class="price">Ksh 2,100</p>
+                    <div class="sizes">
+                        <button class="size-btn" data-size="S">S</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="L">L</button>
+                        <button class="size-btn" data-size="XL">XL</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart(this)">
+                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Jersey 6 -->
+            <div class="product-card" data-price="1900">
+                <div class="sale-badge">-15%</div>
+                <div class="product-image">
+                    <img src="jersey6.jpg" alt="PSG Away Kit">
+                </div>
+                <div class="product-info">
+                    <h3>PSG Away Kit 23/24</h3>
+                    <p class="price"><span class="original-price">Ksh 2,200</span> Ksh 1,900</p>
+                    <div class="sizes">
+                        <button class="size-btn" data-size="S">S</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="L">L</button>
+                        <button class="size-btn" data-size="XL">XL</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart(this)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Jersey 7 -->
+            <div class="product-card" data-price="2400">
+                <div class="product-image">
+                    <img src="jersey7.jpg" alt="Bayern Munich Home Kit">
+                </div>
+                <div class="product-info">
+                    <h3>Bayern Munich Home Kit 23/24</h3>
+                    <p class="price">Ksh 2,400</p>
+                    <div class="sizes">
+                        <button class="size-btn" data-size="S">S</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="L">L</button>
+                        <button class="size-btn" data-size="XL">XL</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart(this)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Jersey 8 -->
+            <div class="product-card" data-price="1200">
+                <div class="sale-badge">Best Deal!</div>
+                <div class="product-image">
+                    <img src="jersey8.jpg" alt="AC Milan Home Kit">
+                </div>
+                <div class="product-info">
+                    <h3>AC Milan Home Kit 23/24</h3>
+                    <p class="price">Ksh 1,200</p>
+                    <div class="sizes">
+                        <button class="size-btn" data-size="S">S</button>
+                        <button class="size-btn" data-size="M">M</button>
+                        <button class="size-btn" data-size="L">L</button>
+                        <button class="size-btn" data-size="XL">XL</button>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart(this)">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>We are passionate about bringing you the highest quality football jerseys from your favorite teams worldwide. Each jersey in our collection is carefully selected to ensure authenticity and premium quality.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Fast Shipping</h3>
+                    <p>Quick delivery worldwide</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Authentic Products</h3>
+                    <p>100% genuine jerseys</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Always here to help</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Visit Us</h2>
+        <div class="contact-container">
+            <div class="business-info">
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Business Hours</h3>
+                    <ul>
+                        <li>Monday - Friday: 8:00 AM - 6:00 PM</li>
+                        <li>Saturday: 9:00 AM - 5:00 PM</li>
+                        <li>Sunday: 10:00 AM - 3:00 PM</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-store"></i>
+                    <h3>Find Us At</h3>
+                    <p>Moi Avenue, Next to Bazaar Plaza</p>
+                    <p>Nairobi CBD, Kenya</p>
+                    <a href="https://maps.google.com/?q=Moi+Avenue+Nairobi" class="direction-btn" target="_blank">
+                        <i class="fas fa-directions"></i> Get Directions
+                    </a>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Quick Contact</h3>
+                    <div class="contact-buttons">
+                        <a href="https://wa.me/+254XXXXXXXXX" class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="tel:+254XXXXXXXXX" class="call-btn">
+                            <i class="fas fa-phone"></i> Call Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Visit Our Shop</h4>
+                <div class="location-container">
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Moi Avenue, Nairobi CBD
+                    </p>
+                    <a href="https://maps.google.com/?q=Moi+Avenue+Nairobi" class="map-btn" target="_blank">
+                        <i class="fas fa-map"></i> View on Map
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/+254XXXXXXXXX" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="tel:+254XXXXXXXXX" class="call-btn">
+                        <i class="fas fa-phone"></i> Call Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <h2>Shopping Cart</h2>
+            <div class="cart-items"></div>
+            <div class="cart-total">
+                <strong>Total:</strong> <span id="cartTotal">Ksh 0</span>
+            </div>
+            <button id="checkoutBtn">Checkout</button>
+            <button id="closeCart">Close</button>
+        </div>
+    </div>
+
+    <!-- Add this JavaScript at the end of your body tag -->
+    <script>
+        let cart = [];
+
+        function addToCart(button) {
+            const card = button.closest('.product-card');
+            const selectedSize = card.querySelector('.size-btn.selected');
+            
+            if (!selectedSize) {
+                alert('Please select a size first');
+                return;
+            }
+
+            const item = {
+                id: Date.now(),
+                name: card.querySelector('h3').textContent,
+                price: parseInt(card.dataset.price),
+                size: selectedSize.dataset.size
+            };
+
+            cart.push(item);
+            updateCartDisplay();
+            showAddedAnimation(button);
+        }
+
+        function updateCartDisplay() {
+            const cartCount = document.querySelector('.cart-count');
+            const cartItems = document.querySelector('.cart-items');
+            const cartTotal = document.getElementById('cartTotalAmount');
+            
+            // Update cart count
+            cartCount.textContent = cart.length;
+            
+            // Update cart items
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                total += item.price;
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <span>${item.name}</span>
+                            <span>Size: ${item.size}</span>
+                        </div>
+                        <div class="item-price">
+                            <span>Ksh ${item.price}</span>
+                            <button onclick="removeFromCart(${item.id})">×</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartTotal.textContent = `Ksh ${total}`;
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartDisplay();
+        }
+
+        function showAddedAnimation(button) {
+            button.textContent = 'Added!';
+            button.classList.add('added');
+            setTimeout(() => {
+                button.textContent = 'Order Now';
+                button.classList.remove('added');
+            }, 1500);
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            let message = 'Hello! I would like to order:\n\n';
+            let total = 0;
+
+            cart.forEach(item => {
+                message += `${item.name} (Size ${item.size}) - Ksh ${item.price}\n`;
+                total += item.price;
+            });
+
+            message += `\nTotal: Ksh ${total}`;
+            
+            // Replace with your WhatsApp number
+            window.open(`https://wa.me/+254XXXXXXXXX?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Update the onclick handlers in your product cards
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.onclick = () => addToCart(button);
+        });
+
+        // Size selection
+        document.querySelectorAll('.size-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const sizeButtons = e.target.parentElement.querySelectorAll('.size-btn');
+                sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                e.target.classList.add('selected');
+            });
+        });
+
+        // Sticky header
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('sticky-header');
+                return;
+            }
+            
+            if (currentScroll > lastScroll) {
+                header.classList.add('sticky-header');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
