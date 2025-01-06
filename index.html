@@ -2,42 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Jersey Shop</title>
+    <meta name="description" content="Shop the latest football jerseys from top clubs like Manchester United, Arsenal, Chelsea, and more!">
+    <meta name="keywords" content="football jerseys, soccer kits, Manchester United, Chelsea, Barcelona, football shop">
+    
+    <title>Jose Jersey Shop</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="hose.css">
+   <link rel="stylesheet" href="hose.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">Jersey Shop</div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="cart-container">
-                <div class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
-                </div>
-                <div class="cart-dropdown">
-                    <h3>Shopping Cart</h3>
-                    <div class="cart-items">
-                        <!-- Cart items will be added here dynamically -->
-                    </div>
-                    <div class="cart-total">
-                        <span>Total:</span>
-                        <span id="cartTotalAmount">Ksh 0</span>
-                    </div>
-                    <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout on WhatsApp</button>
-                </div>
+  <!-- Header -->
+<header>
+    <nav>
+        <div class="logo-container">
+            <div class="logo">Jose Jersey Shop</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="cart-container">
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
             </div>
-        </nav>
-    </header>
+            <div class="cart-dropdown">
+                <h3>Shopping Cart</h3>
+                <div class="cart-items">
+                    <!-- Cart items will be added here dynamically -->
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotalAmount">Ksh 0</span>
+                </div>
+                <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout on WhatsApp</button>
+            </div>
+        </div>
+        <!-- Hamburger Menu -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</header>
+
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -54,16 +65,16 @@
             <div class="product-card" data-price="2500">
                 <div class="sale-badge">New!</div>
                 <div class="product-image">
-                    <img src="jersey1.jpg" alt="Manchester United Home Kit">
+                    <img src="manU.jpg" alt="Manchester United Home Kit">
                 </div>
                 <div class="product-info">
                     <h3>Manchester United Home Kit 23/24</h3>
                     <p class="price">Ksh 2,500</p>
                     <div class="sizes">
-                        <button class="size-btn" data-size="S">S</button>
-                        <button class="size-btn" data-size="M">M</button>
-                        <button class="size-btn" data-size="L">L</button>
-                        <button class="size-btn" data-size="XL">XL</button>
+                        <button class="size-btn" onclick="selectSize(this)" data-size="S">S</button>
+                        <button class="size-btn" onclick="selectSize(this)" data-size="M">M</button>
+                        <button class="size-btn" onclick="selectSize(this)" data-size="L">L</button>
+                        <button class="size-btn" onclick="selectSize(this)" data-size="XL">XL</button>
                     </div>
                     <button class="add-to-cart" onclick="addToCart(this)">
                         Add to Cart <i class="fas fa-shopping-cart"></i>
@@ -75,16 +86,16 @@
             <div class="product-card" data-price="1800">
                 <div class="sale-badge">-20%</div>
                 <div class="product-image">
-                    <img src="jersey2.jpg" alt="Arsenal Away Kit">
+                    <img src="snapdragon.jpg" alt="Arsenal Away Kit">
                 </div>
                 <div class="product-info">
                     <h3>Arsenal Away Kit 23/24</h3>
                     <p class="price"><span class="original-price">Ksh 2,200</span> Ksh 1,800</p>
                     <div class="sizes">
-                        <button class="size-btn" data-size="S">S</button>
-                        <button class="size-btn" data-size="M">M</button>
-                        <button class="size-btn" data-size="L">L</button>
-                        <button class="size-btn" data-size="XL">XL</button>
+                        <button class="size-btn" data-size="Small" onclick="selectSize(this)">S</button>
+                        <button class="size-btn" data-size="Medium" onclick="selectSize(this)">M</button>
+                        <button class="size-btn" data-size="Large" onclick="selectSize(this)">L</button>
+                        <button class="size-btn" data-size="extraLarger" onclick="selectSize(this)">XL</button>
                     </div>
                     <button class="add-to-cart" onclick="addToCart(this)">
                         Add to Cart <i class="fas fa-shopping-cart"></i>
@@ -95,16 +106,16 @@
             <!-- Jersey 3 -->
             <div class="product-card" data-price="2300">
                 <div class="product-image">
-                    <img src="jersey3.jpg" alt="Liverpool Home Kit">
+                    <img src="Chelsea.jpg" alt="Liverpool Home Kit">
                 </div>
                 <div class="product-info">
                     <h3>Liverpool Home Kit 23/24</h3>
                     <p class="price">Ksh 2,300</p>
                     <div class="sizes">
-                        <button class="size-btn" data-size="S">S</button>
-                        <button class="size-btn" data-size="M">M</button>
-                        <button class="size-btn" data-size="L">L</button>
-                        <button class="size-btn" data-size="XL">XL</button>
+                        <button class="size-btn" data-size="Small" onclick="selectSize(this)">S</button>
+                        <button class="size-btn" data-size="Medium" onclick="selectSize(this)">M</button>
+                        <button class="size-btn" data-size="Large" onclick="selectSize(this)">L</button>
+                        <button class="size-btn" data-size="extraLarger" onclick="selectSize(this)">XL</button>
                     </div>
                     <button class="add-to-cart" onclick="addToCart(this)">
                         Add to Cart <i class="fas fa-shopping-cart"></i>
@@ -116,16 +127,16 @@
             <div class="product-card" data-price="2700">
                 <div class="sale-badge">Hot!</div>
                 <div class="product-image">
-                    <img src="jersey4.jpg" alt="Real Madrid Home Kit">
+                    <img src="chelsea2.jpg" alt="Real Madrid Home Kit">
                 </div>
                 <div class="product-info">
                     <h3>Real Madrid Home Kit 23/24</h3>
                     <p class="price">Ksh 2,700</p>
                     <div class="sizes">
-                        <button class="size-btn" data-size="S">S</button>
-                        <button class="size-btn" data-size="M">M</button>
-                        <button class="size-btn" data-size="L">L</button>
-                        <button class="size-btn" data-size="XL">XL</button>
+                        <button class="size-btn" data-size="Small" onclick="selectSize(this)">S</button>
+                        <button class="size-btn" data-size="Medium" onclick="selectSize(this)">M</button>
+                        <button class="size-btn" data-size="Large" onclick="selectSize(this)">L</button>
+                        <button class="size-btn" data-size="extraLarger" onclick="selectSize(this)">XL</button>
                     </div>
                     <button class="add-to-cart" onclick="addToCart(this)">
                         Add to Cart <i class="fas fa-shopping-cart"></i>
@@ -137,16 +148,16 @@
             <div class="product-card" data-price="2100">
                 <div class="sale-badge">Limited!</div>
                 <div class="product-image">
-                    <img src="jersey5.jpg" alt="Barcelona Home Kit">
+                    <img src="hero.jpg" alt="Barcelona Home Kit">
                 </div>
                 <div class="product-info">
                     <h3>Barcelona Home Kit 23/24</h3>
                     <p class="price">Ksh 2,100</p>
                     <div class="sizes">
-                        <button class="size-btn" data-size="S">S</button>
-                        <button class="size-btn" data-size="M">M</button>
-                        <button class="size-btn" data-size="L">L</button>
-                        <button class="size-btn" data-size="XL">XL</button>
+                        <button class="size-btn" data-size="Small" onclick="selectSize(this)">S</button>
+                        <button class="size-btn" data-size="Medium" onclick="selectSize(this)">M</button>
+                        <button class="size-btn" data-size="Large" onclick="selectSize(this)">L</button>
+                        <button class="size-btn" data-size="extraLarger" onclick="selectSize(this)">XL</button>
                     </div>
                     <button class="add-to-cart" onclick="addToCart(this)">
                         Add to Cart <i class="fas fa-shopping-cart"></i>
@@ -164,12 +175,14 @@
                     <h3>PSG Away Kit 23/24</h3>
                     <p class="price"><span class="original-price">Ksh 2,200</span> Ksh 1,900</p>
                     <div class="sizes">
-                        <button class="size-btn" data-size="S">S</button>
-                        <button class="size-btn" data-size="M">M</button>
-                        <button class="size-btn" data-size="L">L</button>
-                        <button class="size-btn" data-size="XL">XL</button>
+                        <button class="size-btn" data-size="Small" onclick="selectSize(this)">S</button>
+                        <button class="size-btn" data-size="Medium" onclick="selectSize(this)">M</button>
+                        <button class="size-btn" data-size="Large" onclick="selectSize(this)">L</button>
+                        <button class="size-btn" data-size="extraLarger" onclick="selectSize(this)">XL</button>
                     </div>
-                    <button class="add-to-cart" onclick="addToCart(this)">Order Now</button>
+                    <button class="add-to-cart" onclick="addToCart(this)">
+                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                    </button>
                 </div>
             </div>
 
@@ -182,32 +195,29 @@
                     <h3>Bayern Munich Home Kit 23/24</h3>
                     <p class="price">Ksh 2,400</p>
                     <div class="sizes">
-                        <button class="size-btn" data-size="S">S</button>
-                        <button class="size-btn" data-size="M">M</button>
-                        <button class="size-btn" data-size="L">L</button>
-                        <button class="size-btn" data-size="XL">XL</button>
+                        <button class="size-btn" data-size="Small" onclick="selectSize(this)">S</button>
+                        <button class="size-btn" data-size="Medium" onclick="selectSize(this)">M</button>
+                        <button class="size-btn" data-size="Large" onclick="selectSize(this)">L</button>
+                        <button class="size-btn" data-size="extraLarger" onclick="selectSize(this)">XL</button>
                     </div>
-                    <button class="add-to-cart" onclick="addToCart(this)">Order Now</button>
+                    <button class="add-to-cart" onclick="addToCart(this)">
+                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                    </button>
                 </div>
             </div>
 
             <!-- Jersey 8 -->
-            <div class="product-card" data-price="1200">
-                <div class="sale-badge">Best Deal!</div>
-                <div class="product-image">
-                    <img src="jersey8.jpg" alt="AC Milan Home Kit">
+            <div class="product-card" data-price="1500">
+                <h3>Product Name</h3>
+                <div class="sizes">
+                    <button class="size-btn" data-size="Small" onclick="selectSize(this)">S</button>
+                        <button class="size-btn" data-size="Medium" onclick="selectSize(this)">M</button>
+                        <button class="size-btn" data-size="Large" onclick="selectSize(this)">L</button>
+                        <button class="size-btn" data-size="extraLarger" onclick="selectSize(this)">XL</button>
                 </div>
-                <div class="product-info">
-                    <h3>AC Milan Home Kit 23/24</h3>
-                    <p class="price">Ksh 1,200</p>
-                    <div class="sizes">
-                        <button class="size-btn" data-size="S">S</button>
-                        <button class="size-btn" data-size="M">M</button>
-                        <button class="size-btn" data-size="L">L</button>
-                        <button class="size-btn" data-size="XL">XL</button>
-                    </div>
-                    <button class="add-to-cart" onclick="addToCart(this)">Order Now</button>
-                </div>
+                <button class="add-to-cart" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            
             </div>
         </div>
     </section>
@@ -254,9 +264,9 @@
                 <div class="info-card">
                     <i class="fas fa-store"></i>
                     <h3>Find Us At</h3>
-                    <p>Moi Avenue, Next to Bazaar Plaza</p>
-                    <p>Nairobi CBD, Kenya</p>
-                    <a href="https://maps.google.com/?q=Moi+Avenue+Nairobi" class="direction-btn" target="_blank">
+                    <p>Karen Shopping Center</p>
+                    <p>Karen, Nairobi, Kenya</p>
+                    <a href="https://maps.google.com/?q=Karen+Shopping+Center+Nairobi" class="direction-btn" target="_blank">
                         <i class="fas fa-directions"></i> Get Directions
                     </a>
                 </div>
@@ -264,7 +274,7 @@
                     <i class="fas fa-phone-alt"></i>
                     <h3>Quick Contact</h3>
                     <div class="contact-buttons">
-                        <a href="https://wa.me/+254XXXXXXXXX" class="whatsapp-btn" target="_blank">
+                        <a href="https://api.whatsapp.com/send?phone=%2B254742639485" class="whatsapp-btn" target="_blank">
                             <i class="fab fa-whatsapp"></i> WhatsApp
                         </a>
                         <a href="tel:+254XXXXXXXXX" class="call-btn">
@@ -287,167 +297,111 @@
                     <li><a href="#about">About</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
-                <h4>Visit Our Shop</h4>
-                <div class="location-container">
-                    <p>
-                        <i class="fas fa-map-marker-alt"></i>
-                        Moi Avenue, Nairobi CBD
-                    </p>
-                    <a href="https://maps.google.com/?q=Moi+Avenue+Nairobi" class="map-btn" target="_blank">
-                        <i class="fas fa-map"></i> View on Map
-                    </a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <div class="contact-buttons">
-                    <a href="https://wa.me/+254XXXXXXXXX" class="whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                    <a href="tel:+254XXXXXXXXX" class="call-btn">
-                        <i class="fas fa-phone"></i> Call Us
-                    </a>
-                </div>
+           
             </div>
         </div>
     </footer>
 
-    <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <h2>Shopping Cart</h2>
-            <div class="cart-items"></div>
-            <div class="cart-total">
-                <strong>Total:</strong> <span id="cartTotal">Ksh 0</span>
-            </div>
-            <button id="checkoutBtn">Checkout</button>
-            <button id="closeCart">Close</button>
-        </div>
-    </div>
+   
 
-    <!-- Add this JavaScript at the end of your body tag -->
     <script>
+        // Initialize cart
         let cart = [];
-
+    
+        // Add item to cart
         function addToCart(button) {
-            const card = button.closest('.product-card');
-            const selectedSize = card.querySelector('.size-btn.selected');
-            
-            if (!selectedSize) {
-                alert('Please select a size first');
-                return;
-            }
-
-            const item = {
-                id: Date.now(),
-                name: card.querySelector('h3').textContent,
-                price: parseInt(card.dataset.price),
-                size: selectedSize.dataset.size
-            };
-
-            cart.push(item);
-            updateCartDisplay();
-            showAddedAnimation(button);
+            const productCard = button.closest('.product-card');
+            const productName = productCard.querySelector('h3').innerText;
+            const productPrice = parseFloat(productCard.getAttribute('data-price'));
+            const productSize = productCard.querySelector('.size-btn.selected')?.dataset.size || "N/A";
+    
+            cart.push({ name: productName, price: productPrice, size: productSize });
+    
+            // Update cart UI
+            updateCartUI();
         }
-
-        function updateCartDisplay() {
+    
+        // Select size
+        function selectSize(button) {
+            const sizeButtons = button.closest('.sizes').querySelectorAll('.size-btn');
+            sizeButtons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+        }
+    
+        // Update the cart display
+        function updateCartUI() {
             const cartCount = document.querySelector('.cart-count');
             const cartItems = document.querySelector('.cart-items');
-            const cartTotal = document.getElementById('cartTotalAmount');
-            
+            const cartTotalAmount = document.getElementById('cartTotalAmount');
+    
+            // Reset cart total and calculate new total
+            let newTotal = 0;
+            cart.forEach(item => {
+                newTotal += item.price;
+            });
+    
             // Update cart count
-            cartCount.textContent = cart.length;
-            
-            // Update cart items
-            cartItems.innerHTML = '';
-            let total = 0;
-            
-            cart.forEach(item => {
-                total += item.price;
-                cartItems.innerHTML += `
-                    <div class="cart-item">
-                        <div class="item-info">
-                            <span>${item.name}</span>
-                            <span>Size: ${item.size}</span>
-                        </div>
-                        <div class="item-price">
-                            <span>Ksh ${item.price}</span>
-                            <button onclick="removeFromCart(${item.id})">×</button>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            cartTotal.textContent = `Ksh ${total}`;
+            cartCount.innerText = cart.length;
+    
+            // Update cart items list
+            cartItems.innerHTML = cart.map((item, index) => 
+                `<div class="cart-item">
+                    <p>${item.name} - Size: ${item.size} - Ksh ${item.price}</p>
+                    <button class="remove-button" onclick="removeFromCart(${index})">Remove</button>
+                </div>`
+            ).join('');
+    
+            // Update total price
+            cartTotalAmount.innerText = `Ksh ${newTotal.toFixed(2)}`;
         }
-
-        function removeFromCart(id) {
-            cart = cart.filter(item => item.id !== id);
-            updateCartDisplay();
+    
+        // Remove item from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
         }
-
-        function showAddedAnimation(button) {
-            button.textContent = 'Added!';
-            button.classList.add('added');
-            setTimeout(() => {
-                button.textContent = 'Order Now';
-                button.classList.remove('added');
-            }, 1500);
-        }
-
+    
+        // Checkout via WhatsApp
         function checkoutWhatsApp() {
-            if (cart.length === 0) {
-                alert('Your cart is empty!');
-                return;
-            }
-
-            let message = 'Hello! I would like to order:\n\n';
-            let total = 0;
-
-            cart.forEach(item => {
-                message += `${item.name} (Size ${item.size}) - Ksh ${item.price}\n`;
-                total += item.price;
-            });
-
-            message += `\nTotal: Ksh ${total}`;
-            
-            // Replace with your WhatsApp number
-            window.open(`https://wa.me/+254XXXXXXXXX?text=${encodeURIComponent(message)}`, '_blank');
+            const message = `Checkout Summary:\n` + cart.map(item => 
+                `${item.name} - Size: ${item.size} - Ksh ${item.price}`
+            ).join('\n') + `\nTotal: Ksh ${cartTotalAmount.innerText.replace('Ksh ', '')}`;
+    
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=%2B254742639485&text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
 
-        // Update the onclick handlers in your product cards
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.onclick = () => addToCart(button);
-        });
 
-        // Size selection
-        document.querySelectorAll('.size-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const sizeButtons = e.target.parentElement.querySelectorAll('.size-btn');
-                sizeButtons.forEach(btn => btn.classList.remove('selected'));
-                e.target.classList.add('selected');
-            });
-        });
+        document.querySelector('.cart-icon').addEventListener('click', function () {
+    const dropdown = document.querySelector('.cart-dropdown');
+    dropdown.classList.toggle('show');
+});
 
-        // Sticky header
-        let lastScroll = 0;
-        const header = document.querySelector('header');
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= 0) {
-                header.classList.remove('sticky-header');
-                return;
-            }
-            
-            if (currentScroll > lastScroll) {
-                header.classList.add('sticky-header');
-            }
-            
-            lastScroll = currentScroll;
-        });
+
+const cartDropdown = document.querySelector('.cart-dropdown');
+
+// Show the dropdown when hovering over the cart container
+document.querySelector('.cart-container').addEventListener('mouseenter', () => {
+    cartDropdown.classList.add('show');
+});
+
+// Hide the dropdown when the mouse leaves the cart dropdown
+cartDropdown.addEventListener('mouseleave', () => {
+    cartDropdown.classList.remove('show');
+});
+
+
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
+
+    navLinks.classList.toggle('show');
+    hamburger.classList.toggle('active');
+}
+
     </script>
+    
+
 </body>
 </html>
