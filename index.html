@@ -166,14 +166,14 @@
             </div>
 
             <!-- Jersey 6 -->
-            <div class="product-card" data-price="1900">
+            <div class="product-card" data-price="800">
                 <div class="sale-badge">-15%</div>
                 <div class="product-image">
                     <img src="jersey6.jpg" alt="PSG Away Kit">
                 </div>
                 <div class="product-info">
                     <h3>PSG Away Kit 23/24</h3>
-                    <p class="price"><span class="original-price">Ksh 2,200</span> Ksh 1,900</p>
+                    <p class="price"><span class="original-price">Ksh 1000</span> Ksh 800</p>
                     <div class="sizes">
                         <button class="size-btn" data-size="Small" onclick="selectSize(this)">S</button>
                         <button class="size-btn" data-size="Medium" onclick="selectSize(this)">M</button>
@@ -274,10 +274,10 @@
                     <i class="fas fa-phone-alt"></i>
                     <h3>Quick Contact</h3>
                     <div class="contact-buttons">
-                        <a href="https://api.whatsapp.com/send?phone=%2B254742639485" class="whatsapp-btn" target="_blank">
+                        <a href="https://api.whatsapp.com/send?phone=%2B254 768 097 103" class="whatsapp-btn" target="_blank">
                             <i class="fab fa-whatsapp"></i> WhatsApp
                         </a>
-                        <a href="tel:+254XXXXXXXXX" class="call-btn">
+                        <a href="tel:+254 768 097 103" class="call-btn">
                             <i class="fas fa-phone"></i> Call Us
                         </a>
                     </div>
@@ -286,23 +286,37 @@
         </div>
     </section>
 
-    <!-- Footer -->
+
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>Jose Jersey Shop</h3>
+                <p>Your one-stop shop for authentic and high-quality jerseys. We bring your favorite team to your wardrobe.</p>
+            </div>
+    
+            <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#shop">Shop</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-           
+    
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: <a href="mailto:josephkitema840@gmail.com">support@josephkitema840@gmail.com</a></p>
+                <p>Phone: +254 768 097 103</p>
+                <p>Location: Nairobi, Kenya</p>
             </div>
+    
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Jose Jersey Shop. All Rights Reserved. | Developed with 💻 by Amos❤️</p>
         </div>
     </footer>
-
-   
+    
 
     <script>
         // Initialize cart
@@ -367,7 +381,7 @@
                 `${item.name} - Size: ${item.size} - Ksh ${item.price}`
             ).join('\n') + `\nTotal: Ksh ${cartTotalAmount.innerText.replace('Ksh ', '')}`;
     
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=%2B254742639485&text=${encodeURIComponent(message)}`;
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=%2B+254 768 097 103&text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
 
