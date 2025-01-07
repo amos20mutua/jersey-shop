@@ -1,3 +1,10 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
 
 /* Logo Styling */
 .logo-container {
@@ -10,7 +17,8 @@
 .logo {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: clamp(1rem, 2.5vw, 2.5rem);
+
     text-transform: uppercase;
     background: linear-gradient(45deg, #76ABAE, #3949AB, #4CAF50);
     background-clip: text;
@@ -72,7 +80,7 @@ body {
     background: var(--background);
     color: var(--text);
     overflow-x: hidden;
-}
+    margin: 0;
 
 /* Header and Navigation */
 header {
@@ -103,9 +111,9 @@ nav {
 
 .nav-links {
     display: flex;
-    align-items: center;
-    gap: 2rem;
-    list-style: none;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
 }
 
 .nav-links a {
@@ -144,11 +152,11 @@ nav {
     align-items: center;
     text-align: center;
     color: white;
-    padding: 0 2rem;
+    padding: 2rem 1rem;
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 5vw, 4rem);
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
 }
@@ -160,7 +168,7 @@ nav {
 }
 
 .cta-button {
-    padding: 1rem 2rem;
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
     background: var(--gradient);
     color: white;
     text-decoration: none;
@@ -175,19 +183,27 @@ nav {
     box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
 
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+    }
+}
+
 /* Products Section */
 .products {
-    padding: 6rem 2rem;
-    max-width: 1400px;
+    padding: clamp(4rem, 5vw, 6rem) 2rem; /* Scales padding based on screen size */
+    max-width: 90vw; /* Keep max width relative to the viewport */
     margin: 0 auto;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem;
-    padding: 2rem 0;
-    perspective: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* More fluid minimum size */
+    gap: 1.5rem;
 }
 
 .product-card {
@@ -198,17 +214,17 @@ nav {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     animation: cardEntry 0.8s ease backwards;
+    max-width: 100%; /* Ensures it never overflows */
 }
 
 .product-card:hover {
-    transform: translateY(-15px) rotateX(5deg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px) rotateX(3deg); /* Subtle hover effect for smaller screens */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .product-image {
     position: relative;
-    overflow: hidden;
-    padding-top: 100%; /* 1:1 Aspect Ratio */
+    aspect-ratio: 1 / 1; /* Ensures consistent 1:1 ratio */
 }
 
 .product-image img {
@@ -222,15 +238,15 @@ nav {
 }
 
 .product-card:hover .product-image img {
-    transform: scale(1.1);
+    transform: scale(1.05); /* Slightly reduced zoom for smaller screens */
 }
 
 .product-info {
-    padding: 1.5rem;
+    padding: clamp(1rem, 2vw, 1.5rem); /* Adjust padding dynamically */
 }
 
 .product-info h3 {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Scale font size */
     margin-bottom: 0.5rem;
     color: var(--text);
     transition: color 0.3s ease;
@@ -241,39 +257,30 @@ nav {
 }
 
 .price {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 3vw, 1.3rem); /* Scale font size */
     font-weight: 600;
     color: var(--primary);
     margin: 1rem 0;
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-    .product-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 @media (max-width: 900px) {
     .product-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
     }
 }
 
 @media (max-width: 600px) {
     .product-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column for small screens */
     }
 
     .product-card {
-        max-width: 350px;
+        max-width: 90%; /* Dynamically scale with screen size */
         margin: 0 auto;
     }
-
-    .product-info h3 {
-        font-size: 1.1rem;
-    }
 }
+
 .about {
     background: linear-gradient(135deg, #f8fafc, #e2e8f0);
     padding: 6rem 2rem;
@@ -283,12 +290,13 @@ nav {
     max-width: 1400px;
     margin: 0 auto;
     text-align: center;
+    padding: 2rem 1rem;
 }
 
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
     margin-top: 3rem;
 }
 
@@ -304,11 +312,17 @@ nav {
 }
 
 .feature i {
-    font-size: 2.5rem;
+    font-size: clamp(1rem, 2.5vw, 2.5rem);
+
     color: var(--primary);
     margin-bottom: 1rem;
 }
 
+@media (max-width: 768px) {
+    .business-info {
+        grid-template-columns: 1fr;
+    }
+}
 /* Contact Section */
 .contact {
     padding: 4rem 2rem;
@@ -343,7 +357,8 @@ nav {
 }
 
 .info-card i {
-    font-size: 2.5rem;
+    font-size: clamp(1rem, 2.5vw, 2.5rem);
+
     color: var(--primary);
     margin-bottom: 1.5rem;
 }
@@ -446,7 +461,8 @@ nav {
     justify-content: center;
     margin: 10px 5px;
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: clamp(1rem, 2.5vw, 2.5rem);
+
     font-weight: bold;
     color: #fff;
     text-decoration: none;
@@ -483,7 +499,7 @@ nav {
 
 /* Cart Icon Styles */
 .cart-icon {
-    font-size: 1.8rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
     color: #31363F;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -560,9 +576,10 @@ nav {
 .cart-total {
     display: flex;
     justify-content: space-between;
-    font-size: 1rem;
+    font-size: 1rem; /* Adjusted for small screens */
     color: #333;
     margin-bottom: 10px;
+    flex-wrap: wrap; /* Ensure wrapping on narrow screens */
 }
 
 /* Checkout Button */
@@ -585,70 +602,148 @@ nav {
     transform: scale(1.05);
 }
 
-/* Responsive Design */
-@media (max-width: 780px) {
-    /* Center the dropdown on small screens */
+//* Responsive styles for smaller screens */
+@media (max-width: 600px) {
     .cart-dropdown {
-        width: 200%;  /* Make the dropdown take up most of the screen width */
-        left: 50%;  /* Center it horizontally */
-        transform: translateX(-50%);  /* Adjust for centering */
-        top: 120%;  /* Adjust the distance from the cart icon */
+      width: 90%; /* Adjust to take up most of the screen */
+      left: 5%; /* Center dropdown horizontally */
+      right: auto; /* Disable right positioning for centering */
+      max-height: 300px; /* Slightly smaller height for smaller screens */
+    }
+  
+    .cart-dropdown::-webkit-scrollbar {
+      width: 6px; /* Customize scrollbar width for better usability */
+    }
+  
+    .cart-dropdown::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 10px;
+    }
+  }
+/* Ultra-Small Screen Adjustments (<400px) */
+@media (max-width: 400px) {
+    .cart-dropdown {
+        width: 95%; /* Fill most of the screen width */
+        left: 2.5%; /* Centered with padding */
+        top: 110%;
     }
 
-    /* Adjust cart icon size for smaller screens */
-    .cart-icon {
-        font-size: 1.5rem;
+    .checkout-btn {
+        font-size: 0.9rem; /* Slightly reduce button text size */
+        padding: 8px; /* Adjust padding */
     }
 
-    /* Adjust cart count size */
-    .cart-count {
-        font-size: 0.7rem;  /* Make the count smaller on small screens */
-        padding: 2px 6px;  /* Reduce padding to fit better */
+    .cart-total {
+        font-size: 0.9rem; /* Ensure totals remain legible */
     }
 }
 
-/* Footer */
+/* Footer Styling */
 footer {
-    background: var(--secondary);
-    color: white;
-    padding: 4rem 2rem 2rem;
+    background-color: #31363F;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 30px 20px;
 }
 
-.footer-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: auto;
+    gap: 20px;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.footer-container div {
+    flex: 1 1 200px;
+    padding: 10px;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+.footer-about h3,
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #76ABAE;
 }
 
-@keyframes glow {
-    0%, 100% { filter: brightness(100%); }
-    50% { filter: brightness(150%); }
+.footer-about p,
+.footer-contact p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 5px;
+}
+
+.footer-links a {
+    color: #76ABAE;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+.footer-social img {
+    width: 100%;
+    filter: brightness(0) invert(1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.85rem;
+    background-color: #24292F;
+    margin-top: 20px;
+    border-top: 1px solid #76ABAE;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-bottom p a {
+    color: #76ABAE;
+    text-decoration: none;
+}
+
+.footer-bottom p a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
     }
+
+    .footer-container div {
+        flex: none;
+        margin-bottom: 20px;
+    }
+}
+
+
+
     
     .hero h1 {
         font-size: 2.5rem;
@@ -732,7 +827,8 @@ footer {
 
     .nav-links li a {
         color: #76ABAE;
-        font-size: 1rem;
+        font-size: clamp(1rem, 2.5vw, 2.5rem);
+
         text-decoration: none;
         padding: 0.3rem 0;
         display: block;
@@ -750,4 +846,24 @@ footer {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+
+@media (max-width: 480px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+@media (max-width: 600px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+
+button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
 }
