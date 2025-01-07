@@ -661,7 +661,8 @@ footer {
     background-color: #31363F;
     color: #fff;
     font-family: Arial, sans-serif;
-    padding: 30px 20px;
+    padding: 40px 20px; /* Increased padding to give more space around the edges */
+    box-sizing: border-box; /* Ensure padding does not affect the layout */
 }
 
 .footer-container {
@@ -672,6 +673,7 @@ footer {
     max-width: 1200px;
     margin: auto;
     gap: 20px;
+    padding: 0 15px; /* Add extra padding to ensure content does not touch the edges on small screens */
 }
 
 .footer-container div {
@@ -679,8 +681,7 @@ footer {
     padding: 25px;
 }
 
-
-
+/* Footer content styles */
 .footer-about p,
 .footer-contact p {
     font-size: 0.9rem;
@@ -718,9 +719,10 @@ footer {
     filter: brightness(0) invert(1);
 }
 
+/* Footer bottom section */
 .footer-bottom {
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0; /* Increased padding for better spacing */
     font-size: 0.85rem;
     background-color: #24292F;
     margin-top: 20px;
@@ -755,6 +757,20 @@ footer {
     }
 }
 
+/* For very small screens (less than 400px) */
+@media (max-width: 400px) {
+    footer {
+        padding: 40px 15px; /* Extra padding on very small screens */
+    }
+
+    .footer-container {
+        padding: 0 10px; /* More space around the footer content */
+    }
+
+    .footer-bottom {
+        font-size: 0.75rem; /* Reduce font size slightly for very small screens */
+    }
+}
 
 
     
