@@ -278,6 +278,24 @@ nav {
     .product-card {
         max-width: 90%; /* Dynamically scale with screen size */
         margin: 0 auto;
+        transition: transform 0.1s ease, box-shadow 0.1s ease; /* Reduced animation speed */
+    }
+
+    /* Adjust button animations for better responsiveness */
+    button {
+        transition: background-color 0.2s ease, transform 0.1s ease; /* Faster button transitions */
+    }
+
+    /* Reduce hover effects on product cards */
+    .product-card:hover {
+        transform: none; /* Prevent scale effect on hover */
+        box-shadow: none; /* Simplify hover effect */
+    }
+
+    /* Make buttons more responsive */
+    button:hover {
+        transform: scale(1); /* No scaling on hover for buttons */
+        background-color: #0056b3; /* Slight color change */
     }
 }
 
@@ -658,17 +676,10 @@ footer {
 
 .footer-container div {
     flex: 1 1 200px;
-    padding: 10px;
+    padding: 25px;
 }
 
-.footer-about h3,
-.footer-links h4,
-.footer-contact h4,
-.footer-social h4 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #76ABAE;
-}
+
 
 .footer-about p,
 .footer-contact p {
@@ -734,11 +745,13 @@ footer {
     .footer-container {
         flex-direction: column;
         text-align: center;
+        padding: 25px;
     }
 
     .footer-container div {
         flex: none;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        padding: 25px;
     }
 }
 
