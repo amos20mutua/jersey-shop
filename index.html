@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8">
         <meta name="description" content="Shop the latest football jerseys from top clubs like Manchester United, Arsenal, Chelsea, and more!">
         <meta name="keywords" content="football jerseys, soccer kits, Manchester United, Chelsea, Barcelona, football shop">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add this line -->
@@ -9,8 +9,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="hose.css">
-</head>
-<body>
+    </head>
+    
   <!-- Header -->
 <header>
     <nav>
@@ -294,16 +294,7 @@
                 <p>Your one-stop shop for authentic and high-quality jerseys. We bring your favorite team to your wardrobe.</p>
             </div>
     
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#shop">Shop</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-    
+           
             <div class="footer-contact">
                 <h4>Contact Us</h4>
                 <p>Email: <a href="mailto:josephkitema840@gmail.com">support@josephkitema840@gmail.com</a></p>
@@ -406,13 +397,14 @@ cartDropdown.addEventListener('mouseleave', () => {
 });
 
 
-function toggleMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    const hamburger = document.querySelector('.hamburger');
+// JavaScript to toggle the .show class for nav-links
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
 
+hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('show');
     hamburger.classList.toggle('active');
-}
+});
 
     </script>
     
