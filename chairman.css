@@ -19,7 +19,7 @@
     font-weight: 700;
     font-size: clamp(1rem, 2.5vw, 2.5rem);
 
-    text-transform: uppercase;
+   
     background: linear-gradient(45deg, #76ABAE, #3949AB, #4CAF50);
     background-clip: text;
     -webkit-background-clip: text;
