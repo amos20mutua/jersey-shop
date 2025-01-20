@@ -544,10 +544,12 @@ nav {
 /* Cart Dropdown Styles */
 .cart-dropdown {
     display: none;
-    position: absolute;
-    right: 0;
-    top: calc(100% + 10px);
-    width: 320px;
+    position: fixed;
+    top: 80px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90%;
+    max-width: 320px;
     background: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -555,13 +557,13 @@ nav {
     z-index: 1000;
     animation: fadeIn 0.3s ease forwards;
     opacity: 0;
-    transform: translateY(-10px);
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .cart-dropdown.show {
     display: block;
     opacity: 1;
-    transform: translateY(0);
 }
 
 /* Cart Dropdown Header */
@@ -575,10 +577,9 @@ nav {
 
 /* Cart Items Styles */
 .cart-items {
-    max-height: 150px;
+    max-height: 50vh;
     overflow-y: auto;
-    margin-bottom: 10px;
-    padding-right: 5px;
+    padding-right: 10px;
 }
 
 .cart-items::-webkit-scrollbar {
@@ -620,65 +621,41 @@ nav {
     transform: scale(1.05);
 }
 
-//* Responsive styles for smaller screens */
-@media (max-width: 600px) {
+/* Additional mobile optimization */
+@media screen and (max-width: 480px) {
     .cart-dropdown {
-      width: 90%; /* Adjust to take up most of the screen */
-      left: 5%; /* Center dropdown horizontally */
-      right: auto; /* Disable right positioning for centering */
-      max-height: 300px; /* Slightly smaller height for smaller screens */
-    }
-  
-    .cart-dropdown::-webkit-scrollbar {
-      width: 6px; /* Customize scrollbar width for better usability */
-    }
-  
-    .cart-dropdown::-webkit-scrollbar-thumb {
-      background: #ccc;
-      border-radius: 10px;
-    }
-  }
-/* Ultra-Small Screen Adjustments (<400px) */
-@media (max-width: 400px) {
-    .cart-dropdown {
-        width: 95%; /* Fill most of the screen width */
-        left: 2.5%; /* Centered with padding */
-        top: 110%;
+        top: 70px;
+        max-height: 70vh;
     }
 
-    .checkout-btn {
-        font-size: 0.9rem; /* Slightly reduce button text size */
-        padding: 8px; /* Adjust padding */
-    }
 
-    .cart-total {
-        font-size: 0.9rem; /* Ensure totals remain legible */
-    }
-}
-
-/* Footer Styling */
+/* Ensure footer is centered properly */
 footer {
     background-color: #31363F;
     color: #fff;
     font-family: Arial, sans-serif;
-    padding: 40px 20px; /* Increased padding to give more space around the edges */
-    box-sizing: border-box; /* Ensure padding does not affect the layout */
+    padding: 40px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    text-align: center; /* Center all text */
 }
 
 .footer-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center; /* Center all divs horizontally */
+    align-items: center; /* Align items properly */
     max-width: 1200px;
-    margin: auto;
+    margin: auto; /* This ensures the container is centered */
     gap: 20px;
-    padding: 0 15px; /* Add extra padding to ensure content does not touch the edges on small screens */
+    padding: 20px;
+    box-sizing: border-box;
 }
-
 .footer-container div {
-    flex: 1 1 200px;
-    padding: 25px;
+    flex: 1 1 250px; /* Adjusts width but keeps flexibility */
+    padding: 15px;
+    text-align: center; /* Ensures all text is centered */
 }
 
 /* Footer content styles */
@@ -704,7 +681,7 @@ footer {
 }
 
 .footer-links a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .footer-social a {
@@ -719,14 +696,15 @@ footer {
     filter: brightness(0) invert(1);
 }
 
-/* Footer bottom section */
+/* Footer bottom section fix */
 .footer-bottom {
     text-align: center;
-    padding: 20px 0; /* Increased padding for better spacing */
+    padding: 20px 10px;
     font-size: 0.85rem;
     background-color: #24292F;
     margin-top: 20px;
     border-top: 1px solid #76ABAE;
+    width: 100%; /* Ensure full width */
 }
 
 .footer-bottom p {
@@ -747,45 +725,42 @@ footer {
     .footer-container {
         flex-direction: column;
         text-align: center;
-        padding: 25px;
+        padding: 15px;
     }
 
     .footer-container div {
         flex: none;
-        margin-bottom: 25px;
-        padding: 25px;
+        margin-bottom: 15px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .footer-about p,
+    .footer-contact p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 10px;
     }
 }
 
-/* For very small screens (less than 400px) */
-@media (max-width: 400px) {
-    footer {
-        padding: 40px 15px; /* Extra padding on very small screens */
+@media (max-width: 480px) {
+    .footer-bottom {
+        padding: 10px 5px;
+        font-size: 0.75rem; /* Reduce font size slightly */
     }
+}
 
-    .footer-container {
-        padding: 0 10px; /* More space around the footer content */
-    }
+
+
 
     .footer-bottom {
-        font-size: 0.75rem; /* Reduce font size slightly for very small screens */
-    }
-}
-
-
-    
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 10px;
     }
 }
 
 /* Hamburger Menu */
 .hamburger {
-    display: none; /* Hidden by default */
+    display: none; /* Hidden on large screens */
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -815,12 +790,39 @@ footer {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Navigation Links (Default) */
+/* Default Navigation Styles */
 .nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
     align-items: right;
+}
+
+/* ✅ Responsive Styles */
+@media screen and (max-width: 768px) {
+    /* Make the hamburger menu visible on small screens */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide the navigation by default */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Show menu when toggled */
+    .nav-links.show {
+        display: flex;
+    }
 }
 
 /* Show hamburger icon on small screens */
