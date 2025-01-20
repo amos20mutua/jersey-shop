@@ -142,7 +142,7 @@ nav {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREdlKFqIaOHnRAcxIselrtk3ejCXLMvTjSPw&s');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
